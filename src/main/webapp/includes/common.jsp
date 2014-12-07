@@ -64,6 +64,8 @@
     </footer>
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/register.js"></script>
+    <% if (request.getParameter("controller") != null) { %>
+        <script src="scripts/controllers/<%= uri.substring(0, uri.length() - 4) %>.js"></script>
+    <% } %>
 </body>
 </html>
