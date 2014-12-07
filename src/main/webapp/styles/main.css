@@ -1,0 +1,170 @@
+@charset "UTF-8";
+
+.navbar {
+  margin-bottom: 0;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+}
+
+.navbar-form {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.navbar-form .form-control {
+  width: auto;
+}
+
+.navbar-toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  line-height: 1;
+}
+
+@media (max-width: 767px) {
+  .navbar-nav {
+    margin: 0;
+  }
+  .navbar-nav:first-child {
+    margin-top: 7.5px;
+  }
+  .navbar-nav:last-child {
+    margin-bottom: 7.5px;
+  }
+  .navbar-nav .visible-xs {
+    display: inline !important;
+  }
+}
+
+.page-header {
+  margin-top: 20px;
+  padding: 0 0 9px 0;
+  background-color: transparent;
+}
+
+.page-header .pull-right {
+  margin-left: 15px;
+}
+
+.page-header .form-control {
+  display: inline-block;
+  width: auto;
+  vertical-align: top;
+}
+
+.page-body .divider {
+  border-top: 1px solid #ddd;
+  margin: 15px 0;
+}
+
+.page-body pre code {
+  min-height: 34px;
+  height: auto;
+}
+
+.page-footer {
+  margin-bottom: 15px;
+}
+
+html, body {
+  height: 100%;
+  font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "MS Pゴシック", "MS PGothic", sans-serif;
+}
+
+.wrap {
+  min-height: 100%;
+  margin-bottom: -34px;
+}
+
+.wrap:after, .wrap::after {
+  content: "";
+  display: block;
+  height: 34px;
+}
+
+.footer {
+  width: 100%;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  background-color: #f5f5f5;
+  border-top: 1px solid #ddd;
+}
+
+.email {
+  font-size: 18px;
+  line-height: 1.1;
+  margin-top: 10px;
+  display: block;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border: 2px solid #fff;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+}
+
+.avatar-xs {
+  margin-top: 15px;
+  width: 111px;
+  height: 111px;
+}
+
+.comment {
+  margin-top: 15px;
+}
+
+.comment .avatar {
+  width: 64px;
+  height: 64px;
+  position: absolute;
+}
+
+.comment .content {
+  padding-left: 79px;
+  min-height: 64px;
+}
+
+.comment textarea {
+  max-width: 100%;
+}
+
+.comment-header span {
+  font-weight: normal;
+}
+
+.comment-header span:before, .comment-header span::before {
+  content: "\2022";
+}
+
+.comment-footer {
+  margin-top: 15px;
+}
+
+[class^="aspect-"], [class*=" aspect-"] {
+  position: relative;
+}
+
+[class^="aspect-"]:before, [class^="aspect-"]::before,
+[class*=" aspect-"]:before, [class*=" aspect-"]::before {
+  content: "";
+  display: block;
+}
+
+[class^="aspect-"] .content, [class*=" aspect-"] .content {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.aspect-1-1:before, .aspect-1-1::before {
+  padding-top: 100%;
+}

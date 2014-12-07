@@ -1,0 +1,6 @@
+*.swp
+*.sh
+target
+.DS_Store
+nohup.out
+

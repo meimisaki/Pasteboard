@@ -1,0 +1,21 @@
+{
+  "name": "jsp",
+  "version": "0.1.0",
+  "authors": [
+    "meimisaki <meimisaki@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "*",
+    "bootstrap": "*",
+    "font-awesome": "*",
+    "angular": "*"
+  }
+}
