@@ -58,8 +58,8 @@
   margin: 15px 0;
 }
 
-.page-body pre code {
-  min-height: 34px;
+.page-body pre code.form-control {
+  min-height: 340px;
   height: auto;
 }
 
