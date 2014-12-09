@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=utf-8" pageEncoding="UTF-8" %>
+<%@ page pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html ng-app="App">
 <head>
@@ -59,7 +59,7 @@
     </div>
     <footer class="footer">
         <span class="text-muted">
-            &copy; 2014 SoraKasugano &amp; ZYZ
+            &copy; 2014 そらかすがの &amp; ZYZ
         </span>
     </footer>
     <script src="bower_components/angular/angular.min.js"></script>

@@ -1,3 +1,4 @@
+<%@ page pageEncoding="UTF-8" %>
 <div class="container">
     <h2 class="page-header">
         <a href=".">@AUTHOR</a>

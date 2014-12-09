@@ -1,3 +1,4 @@
+<%@ page pageEncoding="UTF-8" %>
 <div class="container" ng-controller="registerCtrl" centering>
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
