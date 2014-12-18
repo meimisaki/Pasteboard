@@ -89,6 +89,8 @@ app.controller('editCtrl', function ($scope) {
                 elem.removeClass(this);
             });
         });
+        if (!lang) return ;
+        lang = lang.val[0];
         elem.data('lang', lang).addClass(lang).trigger('input');
     });
 });

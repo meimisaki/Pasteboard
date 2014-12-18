@@ -7,12 +7,12 @@
         <li><input type="text" class="form-control" name="title" placeholder="Title" ng-model="title" /></li>
         <div class="btn-group pull-right">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                {{lang || 'Language'}}
+                {{lang.key || 'Language'}}
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
                 <li ng-repeat="(key, val) in langs">
-                    <a href="javascript:;" ng-click="$parent.lang = val[0]">{{key}}</a>
+                    <a href="javascript:;" ng-click="$parent.lang = {key: key, val: val}">{{key}}</a>
                 </li>
             </ul>
         </div>
