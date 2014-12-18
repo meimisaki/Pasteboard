@@ -16,6 +16,7 @@
     "jquery": "*",
     "bootstrap": "*",
     "font-awesome": "*",
-    "angular": "*"
+    "angular": "*",
+    "highlightjs": "*"
   }
 }

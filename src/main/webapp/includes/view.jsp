@@ -1,4 +1,6 @@
 <%@ page pageEncoding="UTF-8" %>
+<script type="text/javascript" src="bower_components/highlightjs/highlight.pack.js"></script>
+<link rel="stylesheet" type="text/css" href="bower_components/highlightjs/styles/default.css" />
 <div class="container">
     <form>
         <h2 class="breadcrumb page-header">
@@ -15,7 +17,7 @@
         </h2>
     </form>
     <div class="page-body">
-        <pre><code>codes...</code></pre>
+        <pre><code>function (window) { console.alert(window.name); }</code></pre>
         <a href="#" class="btn btn-xs btn-default">
             <i class="fa fa-tag fa-fw"></i>
             C++
@@ -56,3 +58,6 @@
     </div>
     <div class="page-footer"></div>
 </div>
+<script type="text/javascript">
+hljs.initHighlightingOnLoad();
+</script>

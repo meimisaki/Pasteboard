@@ -146,6 +146,19 @@ html, body {
   margin-top: 15px;
 }
 
+.dropdown-menu {
+  max-height: 207px;
+  overflow: scroll;
+}
+
+pre code.hljs {
+  background-color: transparent;
+}
+
+pre code.hljs.form-control {
+  background-color: #fff;
+}
+
 [class^="aspect-"], [class*=" aspect-"] {
   position: relative;
 }
