@@ -4,7 +4,7 @@
 <div class="container" ng-controller="editCtrl">
     <h2 class="breadcrumb page-header">
         <li><a href="#">@AUTHOR</a></li>
-        <li><input type="text" class="form-control" name="title" placeholder="Title" ng-model="title" /></li>
+        <li><input type="text" autocomplete="off" class="form-control" name="title" placeholder="Title" ng-model="title" /></li>
         <div class="btn-group pull-right">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                 {{lang.key || 'Language'}}
@@ -19,10 +19,12 @@
     </h2>
     <div class="page-body">
         <pre><code contenteditable="true" autocomplete="off" spellcheck="false" class="form-control">function (window) { console.alert(window.name); }</code></pre>
-        <a href="#" class="btn btn-xs btn-default">
+        <a href="javascript:;" class="btn btn-xs btn-default tag" ng-repeat="tag in tags" ng-click="tags.splice($index, 1)">
             <i class="fa fa-tag fa-fw"></i>
-            C++
+            {{tag}}
+            <i class="fa fa-remove fa-fw"></i>
         </a>
+        <input type="text" autocomplete="off" class="form-control tag" name="tag" id="tag" placeholder="Tag" />
         <div class="divider"></div>
     </div>
     <div class="page-footer clearfix">

@@ -159,6 +159,15 @@ pre code.hljs.form-control {
   background-color: #fff;
 }
 
+.tag {
+  margin: 6px 10px 6px 0;
+}
+
+.tag.form-control {
+  display: inline-block;
+  width: auto;
+}
+
 [class^="aspect-"], [class*=" aspect-"] {
   position: relative;
 }

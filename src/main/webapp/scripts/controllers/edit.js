@@ -93,4 +93,14 @@ app.controller('editCtrl', function ($scope) {
         lang = lang.val[0];
         elem.data('lang', lang).addClass(lang).trigger('input');
     });
+    $scope.tags = [];
+    var tag = $('#tag').keydown(function (event) {
+        if (event.which != 13) return ;
+        event.preventDefault();
+        var val = tag.val().trim();
+        val && $scope.$apply(function () {
+            if ($scope.tags.indexOf(val) == -1) $scope.tags.push(val);
+            tag.val('');
+        });
+    });
 });
