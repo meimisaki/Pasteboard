@@ -12,7 +12,7 @@
                     <form>
                         <div class="form-group">
                             <label class="control-label" for="username">Username</label>
-                            <input type="text" class="form-control" id="username" name="username" placeholder="Username" validator="validateUsername" />
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Username" validator="validateUsername" hint="Username should only contain A-Z, a-z, 0-9 and underscore" />
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="email">Email</label>
@@ -20,7 +20,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="password">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" ng-model="password" validator="validatePassword" />
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" ng-model="password" validator="validatePassword" hint="Password must be at least 6 characters long" />
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="repeatPassword">Repeat password</label>

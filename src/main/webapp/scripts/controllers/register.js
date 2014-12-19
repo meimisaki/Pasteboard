@@ -12,6 +12,6 @@ app.controller('registerCtrl', function ($scope) {
     var trigger = repeat.trigger.bind(repeat, 'input');
     $('#password').on('input', setTimeout.bind(null, trigger, 0));
     $scope.validatePassword = function (val) {
-        return val == $scope.password;
+        return val.length > 5 && val == $scope.password;
     };
 });

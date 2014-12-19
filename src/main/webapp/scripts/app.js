@@ -19,19 +19,32 @@ app.directive('validator', function () {
             group.addClass('has-feedback');
             var feedback = tmpl.clone();
             group.append(feedback);
+            elem.popover({
+                trigger: 'manual',
+                content: function () {
+                    return attr.hint;
+                }
+            });
+            function toggle(curr, prev) {
+                if (curr == prev) return ;
+                elem.popover(curr ? 'show' : 'hide');
+            }
             elem.on('input', function () {
+                var prev = group.hasClass('has-warning');
                 group.removeClass('has-success has-warning');
                 feedback.removeClass('glyphicon-ok glyphicon-warning-sign');
                 var val = elem.val();
                 var validator = scope.$eval(attr.validator);
-                if (!val || typeof validator != 'function') return ;
+                if (!val || typeof validator != 'function') return toggle(false, prev);
                 if (validator.call(elem, val)) {
                     group.addClass('has-success');
                     feedback.addClass('glyphicon-ok');
+                    toggle(false, prev);
                 }
                 else {
                     group.addClass('has-warning');
                     feedback.addClass('glyphicon-warning-sign');
+                    toggle(true, prev);
                 }
             });
         }
