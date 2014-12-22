@@ -21,6 +21,6 @@ JSP course assignment
 
 ## Todo
 
-> version contorl(longest common subsequence)
+> version control(longest common subsequence)
 
 > full text search
