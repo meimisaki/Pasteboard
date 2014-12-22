@@ -18,3 +18,9 @@ JSP course assignment
 * `catalina start`
 
 * visit [http://localhost:8080/pasteboard](http://localhost:8080/pasteboard)
+
+## Todo
+
+> version contorl(longest common subsequence)
+
+> full text search
