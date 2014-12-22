@@ -30,15 +30,15 @@
                 </div>
                 <div class="col-sm-12 col-xs-8">
                     <div class="list-group" role="sidebar">
-                        <a href="#" class="list-group-item">
+                        <a href="." class="list-group-item">
                             <i class="fa fa-home fa-fw"></i>
                             &nbsp;Home
                         </a>
-                        <a href="#" class="list-group-item">
+                        <a href="?tab=library" class="list-group-item">
                             <i class="fa fa-book fa-fw"></i>
                             &nbsp;Library
                         </a>
-                        <a href="#" class="list-group-item">
+                        <a href="?tab=starred" class="list-group-item">
                             <i class="fa fa-star fa-fw"></i>
                             &nbsp;Starred
                         </a>
@@ -51,48 +51,10 @@
             </div>
         </div>
         <div class="col-md-9 col-sm-8">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <span class="panel-title">
-                                <i class="fa fa-book fa-fw text-muted"></i>
-                                Recent Posts
-                            </span>
-                        </div>
-                        <div class="list-group">
-                            <a href="view.jsp" class="list-group-item">
-                                <i class="fa fa-bookmark fa-fw"></i>
-                                Merge Sort
-                            </a>
-                            <a href="view.jsp" class="list-group-item">
-                                <i class="fa fa-bookmark fa-fw"></i>
-                                Linear Select
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <span class="panel-title">
-                                <i class="fa fa-star fa-fw text-muted"></i>
-                                Recent Stars
-                            </span>
-                        </div>
-                        <div class="list-group">
-                            <a href="view.jsp" class="list-group-item">
-                                <i class="fa fa-heart fa-fw"></i>
-                                Link Cut Tree
-                            </a>
-                            <a href="view.jsp" class="list-group-item">
-                                <i class="fa fa-heart fa-fw"></i>
-                                Network Flow
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <% String tab = request.getParameter("tab"); %>
+            <% if (tab == null || !(tab.equals("library") || tab.equals("starred"))) tab = "home"; %>
+            <% tab += ".jsp"; %>
+            <jsp:include page="<%= tab %>"></jsp:include>
         </div>
     </div>
 </div>
