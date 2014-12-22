@@ -18,7 +18,7 @@
     </form>
     <div class="page-body">
         <pre><code>function (window) { console.alert(window.name); }</code></pre>
-        <a href="#" class="btn btn-xs btn-default">
+        <a href="#" class="btn btn-xs btn-default tag">
             <i class="fa fa-tag fa-fw"></i>
             C++
         </a>
