@@ -3,26 +3,26 @@ package com.sorakasugano.pasteboard;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.concurrent.locks.*;
-import com.sorakasugano.pasteboard.Getter;
-import com.sorakasugano.pasteboard.Setter;
+import com.sorakasugano.pasteboard.Reader;
+import com.sorakasugano.pasteboard.Writer;
 
 public class Adapter {
     private static Map<String, ReadWriteLock> locks = new ConcurrentHashMap<String, ReadWriteLock>();
-    public static Map<String, String> get(Getter getter) throws Exception {
-        ReadWriteLock lock = locks.putIfAbsent(getter.toString(), new ReentrantReadWriteLock());
+    public static Object read(Reader reader) throws Exception {
+        ReadWriteLock lock = locks.putIfAbsent(reader.toString(), new ReentrantReadWriteLock());
         lock.readLock().lock();
         try {
-            return getter.call();
+            return reader.call();
         }
         finally {
             lock.readLock().unlock();
         }
     }
-    public static void set(Setter setter) throws Exception {
-        ReadWriteLock lock = locks.putIfAbsent(setter.toString(), new ReentrantReadWriteLock());
+    public static void write(Writer writer) throws Exception {
+        ReadWriteLock lock = locks.putIfAbsent(writer.toString(), new ReentrantReadWriteLock());
         lock.writeLock().lock();
         try {
-            setter.run();
+            writer.run();
         }
         finally {
             lock.writeLock().unlock();

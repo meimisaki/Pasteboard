@@ -1,20 +1,11 @@
 package com.sorakasugano.pasteboard;
 
-public class Actor {
-    private String mType;
-    private String mId;
-    public Actor(String type, String id) {
-        mType = type;
-        mId = id;
-    }
-    public String type() {
-        return mType;
-    }
-    public String id() {
-        return mId;
-    }
+public abstract class Actor {
+    public String type = null;
+    public String subtype = null;
+    public String id = null;
     @Override
     public String toString() {
-        return mType + ":" + mId;
+        return type + ":" + id + (subtype == null ? "" : ":" + subtype + "-list");
     }
 }

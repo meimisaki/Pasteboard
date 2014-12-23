@@ -2,14 +2,11 @@ package com.sorakasugano.pasteboard;
 
 import java.util.*;
 import java.util.concurrent.*;
-import com.sorakasugano.pasteboard.Actor;
+import com.sorakasugano.pasteboard.Reader;
 
-public class Getter extends Actor implements Callable<Map<String, String>> {
-    public Getter(String type, String id) {
-        super(type, id);
-    }
+public class Getter extends Reader {
     @Override
-    public Map<String, String> call() {
+    public Object call() {
         return null;
     }
 }

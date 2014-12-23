@@ -2,20 +2,14 @@ package com.sorakasugano.pasteboard;
 
 import java.util.*;
 import java.util.concurrent.*;
-import com.sorakasugano.pasteboard.Getter;
+import com.sorakasugano.pasteboard.Reader;
 
 public class Selector extends Getter {
-    private int mOffset;
-    private int mLimit;
-    private String mKeyword;
-    public Selector(String type, String id, int offset, int limit, String keyword) {
-        super(type, id);
-        mOffset = offset;
-        mLimit = limit;
-        mKeyword = keyword;
-    }
+    private int offset = 0;
+    private int limit = -1;
+    private String keyword = null;
     @Override
-    public Map<String, String> call() {
+    public Object call() {
         return null;
     }
 }
