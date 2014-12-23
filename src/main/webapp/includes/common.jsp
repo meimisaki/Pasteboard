@@ -18,7 +18,7 @@
             <div class="container">
                 <div class="navbar-header">
                     <a href="." class="navbar-brand">
-                        Pasteboard
+                        <b>Pasteboard</b>
                     </a>
                     <form class="navbar-form navbar-left" role="search">
                         <div class="input-group">
