@@ -1,7 +1,7 @@
 package com.sorakasugano.pasteboard;
 
 import java.util.*;
-import java.util.concurrent.*;
+import redis.clients.jedis.*;
 import com.sorakasugano.pasteboard.Reader;
 
 public class Selector extends Reader<Map<String, String>[]> {
@@ -9,7 +9,7 @@ public class Selector extends Reader<Map<String, String>[]> {
     private int limit = -1;
     private String keyword = null;
     @Override
-    public Map<String, String>[] call() {
+    public Map<String, String>[] call(Jedis jedis) {
         return null;
     }
 }
