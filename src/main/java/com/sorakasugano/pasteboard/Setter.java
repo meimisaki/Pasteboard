@@ -17,6 +17,7 @@ public class Setter extends Writer {
     private String list() {
         return (owner == null ? "" : owner + ":") + type + "-list";
     }
+    @Override
     public Boolean call(Jedis jedis) throws Exception {
         String key = type + ":" + id;
         boolean exists = jedis.exists(key);
