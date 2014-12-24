@@ -4,7 +4,7 @@ import com.sorakasugano.pasteboard.Writer;
 
 public class Remover extends Writer {
     @Override
-    public void run() {
-        
+    public Object call() {
+        return null;
     }
 }

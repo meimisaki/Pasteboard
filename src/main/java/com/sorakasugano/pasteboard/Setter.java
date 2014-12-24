@@ -6,13 +6,13 @@ import com.sorakasugano.pasteboard.Writer;
 
 public class Setter extends Writer {
     public Map<String, String> object = null;
-    public static String now() {
+    private static String ISOString(Date date) {
         DateFormat iso = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
         iso.setTimeZone(TimeZone.getTimeZone("UTC"));
-        return iso.format(new Date());
+        return iso.format(date);
     }
     @Override
-    public void run() {
-        
+    public Object call() {
+        return null;
     }
 }

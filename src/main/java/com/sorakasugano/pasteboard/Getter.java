@@ -1,7 +1,6 @@
 package com.sorakasugano.pasteboard;
 
 import java.util.*;
-import java.util.concurrent.*;
 import redis.clients.jedis.*;
 import com.sorakasugano.pasteboard.Adapter;
 import com.sorakasugano.pasteboard.Runner;
