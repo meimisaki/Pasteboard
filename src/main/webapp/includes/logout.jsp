@@ -15,7 +15,7 @@
                     }, 3000);
                     </script>
                     Logout success! You will be redirected to
-                    <a href="login.jsp" rel="home">login page</a>
+                    <a href="login.jsp" rel="login">login page</a>
                     in 3 seconds.
                 </div>
             </div>

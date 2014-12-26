@@ -39,7 +39,7 @@ if (post) {
                         }, 3000);
                         </script>
                         Register success! You will be redirected to
-                        <a href="login.jsp" rel="home">login page</a>
+                        <a href="login.jsp" rel="login">login page</a>
                         in 3 seconds.
                     <% } else { %>
                         <form action="register.jsp" method="POST">
