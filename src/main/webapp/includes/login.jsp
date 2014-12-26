@@ -1,10 +1,4 @@
 <%@ page pageEncoding="UTF-8" %>
-<%
-boolean success = false;
-if ("POST".equalsIgnoreCase(request.getMethod())) {
-    success = true;
-}
-%>
 <div class="container" centering>
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
@@ -15,6 +9,10 @@ if ("POST".equalsIgnoreCase(request.getMethod())) {
                     </span>
                 </div>
                 <div class="panel-body">
+                    <%
+                    Boolean success = (Boolean)request.getAttribute("success");
+                    success = success != null && success;
+                    %>
                     <% if (success) { %>
                         <script type="text/javascript">
                         setTimeout(function() {
