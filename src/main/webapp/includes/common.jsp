@@ -1,4 +1,7 @@
 <%@ page pageEncoding="UTF-8" %>
+<%
+Object user = request.getAttribute("user");
+%>
 <!DOCTYPE html>
 <html ng-app="App">
 <head>
@@ -44,10 +47,17 @@
                         </a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="login.jsp" title="login" rel="login">
-                            <i class="fa fa-sign-in fa-lg fa-fw"></i>
-                            Login
-                        </a></li>
+                        <% if (user == null) { %>
+                            <li><a href="login.jsp" title="login" rel="login">
+                                <i class="fa fa-sign-in fa-lg fa-fw"></i>
+                                Login
+                            </a></li>
+                        <% } else { %>
+                            <li><a href="logout.jsp" title="logout" rel="logout">
+                                <i class="fa fa-sign-out fa-lg fa-fw"></i>
+                                Logout
+                            </a></li>
+                        <% } %>
                     </ul>
                 </div>
             </div>

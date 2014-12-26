@@ -1,11 +1,19 @@
 <%@ page pageEncoding="UTF-8" %>
+<%@ page import="java.util.*" %>
+<%
+Map<String, String> user = (Map<String, String>)request.getAttribute("user");
+Map<String, String> target = (Map<String, String>)request.getAttribute("target");
+boolean self = user.get("id").equals(target.get("id"));
+%>
 <div class="container">
     <h2 class="page-header">
-        <a href=".">@AUTHOR</a>
-        <a href="edit.jsp" class="btn btn-primary pull-right">
-            <i class="fa fa-cloud-upload fa-fw"></i>
-            Post code
-        </a>
+        <a href=".?id=<%= target.get("id") %>"><%= target.get("id") %></a>
+        <% if (self) { %>
+            <a href="edit.jsp" class="btn btn-primary pull-right">
+                <i class="fa fa-cloud-upload fa-fw"></i>
+                Post code
+            </a>
+        <% } %>
     </h2>
     <div class="row page-body">
         <div class="col-md-3 col-sm-4">
@@ -23,7 +31,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="mailto:" class="email">@EMAIL</a>
+                    <a href="mailto:" class="email"><%= target.get("email") %></a>
                 </div>
                 <div class="col-xs-12 hidden-xs">
                     <div class="divider"></div>
@@ -42,10 +50,12 @@
                             <i class="fa fa-star fa-fw"></i>
                             &nbsp;Starred
                         </a>
-                        <a href="#" class="list-group-item">
-                            <i class="fa fa-cog fa-fw"></i>
-                            &nbsp;Settings
-                        </a>
+                        <% if (self) { %>
+                            <a href="#" class="list-group-item">
+                                <i class="fa fa-cog fa-fw"></i>
+                                &nbsp;Settings
+                            </a>
+                        <% } %>
                     </div>
                 </div>
             </div>
