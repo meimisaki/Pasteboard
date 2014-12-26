@@ -53,7 +53,7 @@ Object user = request.getAttribute("user");
                                 Login
                             </a></li>
                         <% } else { %>
-                            <li><a href="logout.jsp" title="logout" rel="logout">
+                            <li><a href="javascript:;" title="logout" rel="logout" ng-click="logout()">
                                 <i class="fa fa-sign-out fa-lg fa-fw"></i>
                                 Logout
                             </a></li>

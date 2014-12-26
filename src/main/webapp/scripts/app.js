@@ -9,7 +9,38 @@ $(document).ready(function () {
     });
 });
 
+$.extend({
+    submit: function (obj, opts) {
+        opts = $.extend.call({
+            action: '.',
+            method: 'GET'
+        }, opts);
+        var form = $('<form></form>');
+        form.attr('action', opts.action);
+        form.attr('method', opts.method);
+        obj && $.each(obj, function (key, val) {
+            var field = $('<input />');
+            field.attr('type', 'hidden');
+            field.attr('name', key);
+            field.val(val);
+            form.append(field);
+        });
+        form.hide();
+        $(document.body).append(form);
+        form.submit();
+    }
+});
+
 var app = angular.module('App', []);
+
+app.run(function ($rootScope) {
+    $rootScope.logout = function () {
+        $.submit(null, {
+            action: 'logout.jsp',
+            method: 'POST'
+        });
+    };
+});
 
 app.directive('validator', function () {
     var tmpl = $('<span class="glyphicon form-control-feedback"></span>');
