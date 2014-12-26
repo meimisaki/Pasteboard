@@ -192,6 +192,11 @@ pre code.hljs.form-control {
   color: #999;
 }
 
+.error {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 [class^="aspect-"], [class*=" aspect-"] {
   position: relative;
 }
