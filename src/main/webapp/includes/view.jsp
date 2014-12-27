@@ -1,11 +1,14 @@
 <%@ page pageEncoding="UTF-8" %>
+<%@ page import="java.util.*" %>
+<%@ page isELIgnored="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <script type="text/javascript" src="bower_components/highlightjs/highlight.pack.js"></script>
 <link rel="stylesheet" type="text/css" href="bower_components/highlightjs/styles/default.css" />
 <div class="container">
     <form>
         <h2 class="breadcrumb page-header">
-            <li><a href="#">@AUTHOR</a></li>
-            <li><a href="#">@TITLE</a></li>
+            <li><a href=".?id=${owner.id}">${owner.id}</a></li>
+            <li><a href="view.jsp?id=${code.id}"><c:out value="${code.title}" /></a></li>
             <button type="submit" class="btn btn-default pull-right">
                 <i class="fa fa-star fa-fw"></i>
                 Star
@@ -17,7 +20,7 @@
         </h2>
     </form>
     <div class="page-body">
-        <pre><code>function (window) { console.alert(window.name); }</code></pre>
+        <pre><code><c:out value="${code.source}" /></code></pre>
         <a href="#" class="btn btn-xs btn-default tag">
             <i class="fa fa-tag fa-fw"></i>
             C++
@@ -40,7 +43,6 @@
                         </h5>
                         <div class="comment-body">
                             @COMMENT-BODY
-                            [add like btn]
                         </div>
                     </div>
                 </div>

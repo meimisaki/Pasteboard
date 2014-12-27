@@ -1,13 +1,17 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@ page import="java.util.*" %>
+<%@ page isELIgnored="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 Map<String, String> user = (Map<String, String>)request.getAttribute("user");
 Map<String, String> target = (Map<String, String>)request.getAttribute("target");
-boolean self = user.get("id").equals(target.get("id"));
+String uid = user == null ? null : user.get("id");
+String tid = target == null ? null : target.get("id");
+boolean self = uid != null && tid != null && uid.equals(tid);
 %>
 <div class="container">
     <h2 class="page-header">
-        <a href=".?id=<%= target.get("id") %>"><%= target.get("id") %></a>
+        <a href=".?id=${target.id}">${target.id}</a>
         <% if (self) { %>
             <a href="edit.jsp" class="btn btn-primary pull-right">
                 <i class="fa fa-cloud-upload fa-fw"></i>
@@ -31,22 +35,24 @@ boolean self = user.get("id").equals(target.get("id"));
                             </div>
                         </div>
                     </div>
-                    <a href="mailto:" class="email"><%= target.get("email") %></a>
+                    <a href="mailto:${target.email}" class="email">
+                        <c:out value="${target.email}" />
+                    </a>
                 </div>
                 <div class="col-xs-12 hidden-xs">
                     <div class="divider"></div>
                 </div>
                 <div class="col-sm-12 col-xs-8">
                     <div class="list-group" role="sidebar">
-                        <a href="." class="list-group-item">
+                        <a href=".?id=${target.id}" class="list-group-item">
                             <i class="fa fa-home fa-fw"></i>
                             &nbsp;Home
                         </a>
-                        <a href="?tab=library" class="list-group-item">
+                        <a href="?id=${target.id}&amp;tab=library" class="list-group-item">
                             <i class="fa fa-book fa-fw"></i>
                             &nbsp;Library
                         </a>
-                        <a href="?tab=starred" class="list-group-item">
+                        <a href="?id=${target.id}&amp;tab=starred" class="list-group-item">
                             <i class="fa fa-star fa-fw"></i>
                             &nbsp;Starred
                         </a>
