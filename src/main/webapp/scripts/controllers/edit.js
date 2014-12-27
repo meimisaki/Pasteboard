@@ -93,6 +93,13 @@ app.controller('editCtrl', function ($scope) {
         lang = lang.val[0];
         elem.data('lang', lang).addClass(lang).trigger('input');
     });
+    $(document).ready(function () {
+        var key = $scope.language;
+        var val = $scope.langs[key];
+        val && $scope.$apply(function () {
+            $scope.lang = {key: key, val: val};
+        });
+    });
     $scope.tags = [];
     var tag = $('#tag').keydown(function (event) {
         if (event.which != 13) return ;
