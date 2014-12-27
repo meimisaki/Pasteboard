@@ -1,27 +1,4 @@
 <%@ page pageEncoding="UTF-8" %>
-<%@ page import="java.util.*" %>
-<%@ page import="java.util.regex.*" %>
-<%@ page import="com.sorakasugano.pasteboard.*" %>
-<%
-boolean post = "POST".equalsIgnoreCase(request.getMethod());
-boolean valid = true;
-boolean success = false;
-if (post) {
-    String id = request.getParameter("username");
-    valid = id == null ? false : Pattern.matches("\\w+", id);
-    if (valid) {
-        Setter setter = new Setter();
-        setter.type = "user";
-        setter.id = id;
-        Map<String, String> object = new HashMap<String, String>();
-        object.put("password", request.getParameter("password"));
-        object.put("email", request.getParameter("email"));
-        setter.object = object;
-        setter.replace = false;
-        success = Adapter.invoke(setter);
-    }
-}
-%>
 <div class="container" ng-controller="registerCtrl" centering>
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
@@ -32,7 +9,11 @@ if (post) {
                     </span>
                 </div>
                 <div class="panel-body">
-                    <% if (post && success) { %>
+                    <%
+                    Boolean success = (Boolean)request.getAttribute("success");
+                    success = success != null && success;
+                    %>
+                    <% if (success) { %>
                         <script type="text/javascript">
                         setTimeout(function() {
                             window.location.href = './login.jsp';
