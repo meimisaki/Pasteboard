@@ -33,7 +33,7 @@
             {{tag}}
             <i class="fa fa-remove fa-fw"></i>
         </a>
-        <input type="text" autocomplete="off" class="form-control tag" name="tag" id="tag" placeholder="Tag" />
+        <input type="text" autocomplete="off" class="form-control tag" name="tag" id="tag" placeholder="Tag" ng-init="allTags = <c:out value="${u:JSONEncode(code.tags)}" />" />
         <div class="divider"></div>
     </div>
     <div class="page-footer clearfix">

@@ -94,13 +94,14 @@ app.controller('editCtrl', function ($scope) {
         elem.data('lang', lang).addClass(lang).trigger('input');
     });
     $(document).ready(function () {
-        var key = $scope.language;
-        var val = $scope.langs[key];
-        val && $scope.$apply(function () {
-            $scope.lang = {key: key, val: val};
+        $scope.$apply(function () {
+            var key = $scope.language;
+            var val = $scope.langs[key];
+            val && ($scope.lang = {key: key, val: val});
+            var tags = $scope.allTags.trim();
+            $scope.tags = tags ? tags.split('\n') : [];
         });
     });
-    $scope.tags = [];
     var tag = $('#tag').keydown(function (event) {
         if (event.which != 13) return ;
         event.preventDefault();
