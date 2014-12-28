@@ -48,7 +48,7 @@ public class Adapter {
     }
     public static <T> T invoke(Actor<T> actor) throws Exception {
         if (StringUtils.containsAny(actor.id, ":@")) {
-            throw new InvalidIdentifierException("Invalid identifier:" + actor.id);
+            throw new InvalidIdentifierException("Invalid identifier: " + actor.id);
         }
         Map<String, Boolean> keys = actor.keys();
         Map<String, ReadWriteLock> locks = lock(keys);
