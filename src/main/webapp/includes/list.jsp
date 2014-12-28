@@ -1,28 +1,32 @@
 <%@ page pageEncoding="UTF-8" %>
-<% Object[] list = (Object[])request.getAttribute("list"); %>
+<%@ page isELIgnored="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <table class="table">
     <tbody>
-        <% for (int i = 0 ; i < list.length ; ++i) { %>
+        <c:forEach items="${list}" var="item">
             <tr>
                 <td>
                     <h3 class="item-header">
-                        <a href="#">@TITLE</a>
+                        <a href="view.jsp?id=${item.id}">
+                            <c:out value="${item.title}" />
+                        </a>
                         <span class="item-header-addon">
                             <i class="fa fa-star fa-fw"></i>
                             @STARS
                         </span>
                         <span class="item-header-addon">
-                            @LANGUAGE
+                            <c:out value="${item.language}" />
                         </span>
                     </h3>
                     <div class="item-body">
-                        @DESCRIPTION
+                        <c:out value="${item.description}" />
                     </div>
                     <div class="item-footer">
-                        Updated on @DATE
+                        Updated on <c:out value="${fn:substring(item.modified_time, 0, 10)}" />
                     </div>
                 </td>
             </tr>
-        <% } %>
+        </c:forEach>
     </tbody>
 </table>

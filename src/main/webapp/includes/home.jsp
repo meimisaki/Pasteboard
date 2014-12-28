@@ -1,4 +1,20 @@
 <%@ page pageEncoding="UTF-8" %>
+<%@ page import="java.util.*" %>
+<%@ page import="com.sorakasugano.pasteboard.*" %>
+<%@ page isELIgnored="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%
+Map<String, String> target = (Map<String, String>)request.getAttribute("target");
+Selector selector = new Selector();
+selector.type = "user";
+selector.id = target.get("id");
+selector.limit = 20;
+selector.subtype = "code";
+request.setAttribute("posts", Adapter.invoke(selector));
+selector.subtype = "star";
+selector.alias = "code";
+request.setAttribute("stars", Adapter.invoke(selector));
+%>
 <h3 class="tab-header">
     <i class="fa fa-home fa-fw"></i>
     Home
@@ -13,14 +29,12 @@
                 </span>
             </div>
             <div class="list-group">
-                <a href="view.jsp" class="list-group-item">
-                    <i class="fa fa-bookmark fa-fw"></i>
-                    Merge Sort
-                </a>
-                <a href="view.jsp" class="list-group-item">
-                    <i class="fa fa-bookmark fa-fw"></i>
-                    Linear Select
-                </a>
+                <c:forEach items="${posts}" var="item">
+                    <a href="view.jsp?id=${item.id}" class="list-group-item">
+                        <i class="fa fa-bookmark fa-fw"></i>
+                        <c:out value="${item.title}" />
+                    </a>
+                </c:forEach>
             </div>
         </div>
     </div>
@@ -33,14 +47,12 @@
                 </span>
             </div>
             <div class="list-group">
-                <a href="view.jsp" class="list-group-item">
-                    <i class="fa fa-heart fa-fw"></i>
-                    Link Cut Tree
-                </a>
-                <a href="view.jsp" class="list-group-item">
-                    <i class="fa fa-heart fa-fw"></i>
-                    Network Flow
-                </a>
+                <c:forEach items="${stars}" var="item">
+                    <a href="view.jsp?id=${item.id}" class="list-group-item">
+                        <i class="fa fa-heart fa-fw"></i>
+                        <c:out value="${item.title}" />
+                    </a>
+                </c:forEach>
             </div>
         </div>
     </div>
