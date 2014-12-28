@@ -2,9 +2,11 @@ package com.sorakasugano.pasteboard;
 
 import java.util.*;
 import java.util.concurrent.locks.*;
+import org.apache.commons.lang3.*;
 import redis.clients.jedis.*;
 import redis.clients.jedis.exceptions.*;
 import com.sorakasugano.pasteboard.Actor;
+import com.sorakasugano.pasteboard.InvalidIdentifierException;
 
 public class Adapter {
     private static Map<String, ReadWriteLock> locks = new WeakHashMap<String, ReadWriteLock>();
@@ -45,6 +47,9 @@ public class Adapter {
         }
     }
     public static <T> T invoke(Actor<T> actor) throws Exception {
+        if (StringUtils.containsAny(actor.id, ":@")) {
+            throw new InvalidIdentifierException("Invalid identifier:" + actor.id);
+        }
         Map<String, Boolean> keys = actor.keys();
         Map<String, ReadWriteLock> locks = lock(keys);
         try {
