@@ -7,7 +7,9 @@ JSP course assignment
 
 ## Usage
 
-* Install `maven`, `bower` and `tomcat`
+* Install `maven`, `bower`, `redis` and `tomcat`
+
+* run `redis-server` in background
 
 * run `bower install` in `src/main/webapp` folder
 
