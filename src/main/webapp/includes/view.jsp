@@ -43,6 +43,7 @@ boolean self = uid != null && oid != null && uid.equals(oid);
         </h2>
     </form>
     <div class="page-body">
+        <p><c:out value="${code.description}" /></p>
         <pre><code><c:out value="${code.source}" /></code></pre>
         <%
         String tags = code.get("tags").trim();

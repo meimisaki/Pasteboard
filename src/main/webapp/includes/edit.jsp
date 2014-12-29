@@ -25,7 +25,7 @@
     </h2>
     <div class="page-body">
         <div class="form-group">
-            <input type="text" autocomplete="off" class="form-control" name="description" placeholder="Description" ng-model="description" ng-init="description = <c:out value="${u:JSONEncode(code.description)}" />" />
+            <textarea class="form-control" name="description" placeholder="Description" ng-model="description" ng-init="description = <c:out value="${u:JSONEncode(code.description)}" />"></textarea>
         </div>
         <pre><code contenteditable="true" autocomplete="off" spellcheck="false" class="form-control"><c:out value="${code.source}" /></code></pre>
         <a href="javascript:;" class="btn btn-xs btn-default tag" ng-repeat="tag in tags" ng-click="tags.splice($index, 1)">

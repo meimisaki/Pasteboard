@@ -115,6 +115,10 @@ html, body {
   height: 111px;
 }
 
+textarea {
+  max-width: 100%;
+}
+
 .comment {
   margin-top: 15px;
 }
@@ -128,10 +132,6 @@ html, body {
 .comment .content {
   padding-left: 79px;
   min-height: 64px;
-}
-
-.comment textarea {
-  max-width: 100%;
 }
 
 .comment-header span {
