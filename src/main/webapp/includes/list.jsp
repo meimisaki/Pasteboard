@@ -30,3 +30,23 @@
         </c:forEach>
     </tbody>
 </table>
+<nav>
+    <ul class="pager">
+        <% if ((Boolean)request.getAttribute("has-previous")) { %>
+            <li class="previous">
+                <a href=".?id=${target.id}&amp;tab=${tab}&amp;page=${page + 1}">
+                    <span aria-hidden="true">&larr;</span>
+                    Older
+                </a>
+            </li>
+        <% } %>
+        <% if ((Boolean)request.getAttribute("has-next")) { %>
+            <li class="next">
+                <a href=".?id=${target.id}&amp;tab=${tab}&amp;page=${page - 1}">
+                    Newer
+                    <span aria-hidden="true">&rarr;</span>
+                </a>
+            </li>
+        <% } %>
+    </ul>
+</nav>

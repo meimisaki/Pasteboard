@@ -69,6 +69,7 @@ boolean self = uid != null && tid != null && uid.equals(tid);
         <div class="col-md-9 col-sm-8">
             <% String tab = request.getParameter("tab"); %>
             <% if (tab == null || !(tab.equals("library") || tab.equals("starred"))) tab = "home"; %>
+            <% request.setAttribute("tab", tab); %>
             <% tab += ".jsp"; %>
             <jsp:include page="<%= tab %>"></jsp:include>
         </div>
