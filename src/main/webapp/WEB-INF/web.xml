@@ -10,4 +10,12 @@
       <taglib-location>/WEB-INF/tags/Utils.tld</taglib-location>
     </taglib>
   </jsp-config>
+  <servlet>
+    <servlet-name>UploadServlet</servlet-name>
+    <servlet-class>com.sorakasugano.pasteboard.UploadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UploadServlet</servlet-name>
+    <url-pattern>/upload</url-pattern>
+  </servlet-mapping>
 </web-app>
