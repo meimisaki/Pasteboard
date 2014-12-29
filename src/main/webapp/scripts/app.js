@@ -16,8 +16,9 @@ $.extend({
             method: 'GET'
         }, opts);
         var form = $('<form></form>');
-        form.attr('action', opts.action);
-        form.attr('method', opts.method);
+        $.each(opts, function (key, val) {
+            form.attr(key, val);
+        });
         obj && $.each(obj, function (key, val) {
             var field = $('<input />');
             field.attr('type', 'hidden');
