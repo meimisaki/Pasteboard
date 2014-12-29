@@ -16,7 +16,7 @@
                     <% if (success) { %>
                         <script type="text/javascript">
                         setTimeout(function() {
-                            window.location.href = './login.jsp';
+                            window.location.href = 'login.jsp';
                         }, 3000);
                         </script>
                         Register success! You will be redirected to
