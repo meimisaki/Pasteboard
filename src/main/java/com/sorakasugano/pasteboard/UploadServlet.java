@@ -26,7 +26,7 @@ public class UploadServlet extends HttpServlet {
         if (!ServletFileUpload.isMultipartContent(req)) return ;
         synchronized (UploadServlet.class) {
             if (uploadDir == null) {
-                uploadDir = new File(req.getRealPath("/upload"));
+                uploadDir = new File(FilenameUtils.concat(req.getRealPath("/"), "../upload"));
                 if (!uploadDir.isDirectory()) uploadDir.mkdir();
             }
         }
