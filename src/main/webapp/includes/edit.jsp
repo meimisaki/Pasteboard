@@ -3,9 +3,34 @@
 <%@ page isELIgnored="false" %>
 <%@ taglib uri="/utils" prefix="u" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<% if ("POST".equalsIgnoreCase(request.getMethod())) { %>
+    <div class="container" centering>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <span class="panel-title">
+                            Pasteboard
+                        </span>
+                    </div>
+                    <div class="panel-body">
+                        <script type="text/javascript">
+                        setTimeout(function() {
+                            window.location.href = 'view.jsp?id=${cid}';
+                        }, 3000);
+                        </script>
+                        Post success! You will be redirected to
+                        <a href="view.jsp?id=${cid}">view page</a>
+                        in 3 seconds.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<% return ; } %>
 <script type="text/javascript" src="bower_components/highlightjs/highlight.pack.js"></script>
 <link rel="stylesheet" type="text/css" href="bower_components/highlightjs/styles/default.css" />
-<div class="container" ng-controller="editCtrl">
+<div class="container" ng-controller="editCtrl" ng-init="id = <c:out value="${u:JSONEncode(code.id)}" />">
     <h2 class="breadcrumb page-header">
         <li><a href=".?id=${user.id}">${user.id}</a></li>
         <li>
@@ -37,7 +62,7 @@
         <div class="divider"></div>
     </div>
     <div class="page-footer clearfix">
-        <button type="submit" class="btn btn-primary pull-right">
+        <button type="submit" class="btn btn-primary pull-right" ng-click="post()">
             <i class="fa fa-check fa-fw"></i>
             Post
         </button>

@@ -111,4 +111,19 @@ app.controller('editCtrl', function ($scope) {
             tag.val('');
         });
     });
+    $scope.post = function () {
+        if (!$scope.title || !$scope.lang) return ;
+        var obj = {
+            title: $scope.title,
+            description: $scope.description,
+            source: $(editor).text(),
+            language: $scope.lang.key,
+            tags: $scope.tags.join('\n')
+        };
+        if ($scope.id) obj.id = $scope.id;
+        $.submit(obj, {
+            action: './edit.jsp',
+            method: 'POST'
+        });
+    };
 });

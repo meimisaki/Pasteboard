@@ -16,6 +16,27 @@
         <jsp:forward page="403.jsp"></jsp:forward>
     <% } %>
 <% } %>
+<%
+if ("POST".equalsIgnoreCase(request.getMethod())) {
+    String uid = ((Map<String, String>)request.getAttribute("user")).get("id");
+    String cid = request.getParameter("id");
+    cid = cid == null ? UUID.randomUUID().toString() : cid;
+    request.setAttribute("cid", cid);
+    Setter setter = new Setter();
+    setter.owner = "user:" + uid;
+    setter.type = "code";
+    setter.id = cid;
+    Map<String, String> object = new HashMap<String, String>();
+    object.put("title", request.getParameter("title"));
+    object.put("description", request.getParameter("description"));
+    object.put("source", request.getParameter("source"));
+    object.put("language", request.getParameter("language"));
+    object.put("tags", request.getParameter("tags"));
+    object.put("owner", uid);
+    setter.object = object;
+    Adapter.invoke(setter);
+}
+%>
 <jsp:include page="includes/common.jsp">
     <jsp:param name="controller" value="1" />
 </jsp:include>
