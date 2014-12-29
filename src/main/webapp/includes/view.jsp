@@ -46,9 +46,10 @@ boolean self = uid != null && oid != null && uid.equals(oid);
         <p><c:out value="${code.description}" /></p>
         <pre><code><c:out value="${code.source}" /></code></pre>
         <%
-        String tags = code.get("tags").trim();
+        String tags = code.get("tags");
+        if (tags != null) tags = tags.trim();
         %>
-        <% if (tags.length() != 0) { %>
+        <% if (tags != null && tags.length() != 0) { %>
             <% for (String tag : tags.split("\n")) { %>
                 <a href="#" class="btn btn-xs btn-default tag">
                     <i class="fa fa-tag fa-fw"></i>
