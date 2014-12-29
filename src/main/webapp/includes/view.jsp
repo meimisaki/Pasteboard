@@ -4,6 +4,7 @@
 <%@ page import="com.sorakasugano.pasteboard.*" %>
 <%@ page isELIgnored="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%
 Map<String, String> code = (Map<String, String>)request.getAttribute("code");
 Map<String, String> user = (Map<String, String>)request.getAttribute("user");
@@ -12,6 +13,13 @@ final String cid = code == null ? null : code.get("id");
 final String uid = user == null ? null : user.get("id");
 final String oid = owner == null ? null : owner.get("id");
 boolean self = uid != null && oid != null && uid.equals(oid);
+Selector selector = new Selector();
+selector.type = "code";
+selector.id = cid;
+selector.subtype = "comment";
+List<Map<String, String>> comments = Adapter.invoke(selector);
+Collections.reverse(comments);
+request.setAttribute("comments", comments);
 %>
 <script type="text/javascript" src="bower_components/highlightjs/highlight.pack.js"></script>
 <link rel="stylesheet" type="text/css" href="bower_components/highlightjs/styles/default.css" />
@@ -25,7 +33,7 @@ boolean self = uid != null && oid != null && uid.equals(oid);
                     <i class="fa fa-pencil fa-fw"></i>
                     Edit
                 </a>
-            <% } else { %>
+            <% } else if (user != null) { %>
                 <%
                 Reader<Boolean> reader = new Reader<Boolean>() {
                     @Override
@@ -64,29 +72,36 @@ boolean self = uid != null && oid != null && uid.equals(oid);
                     <i class="fa fa-comments fa-fw"></i>
                     Comments
                 </h4>
-                <div class="comment">
-                    <img src="" title="avatar" class="avatar" />
-                    <div class="content">
-                        <h5 class="comment-header">
-                            @NAME
-                            <span class="text-muted">
-                                @DATE
-                            </span>
-                        </h5>
-                        <div class="comment-body">
-                            @COMMENT-BODY
+                <c:forEach items="${comments}" var="comment">
+                    <div class="comment">
+                        <img src="" title="avatar" class="avatar" />
+                        <div class="content">
+                            <h5 class="comment-header">
+                                ${comment.user}
+                                <span class="text-muted">
+                                    <c:out value="${fn:substring(comment.modified_time, 0, 10)}" />
+                                </span>
+                            </h5>
+                            <div class="comment-body">
+                                <c:out value="${comment.text}" />
+                            </div>
                         </div>
                     </div>
-                </div>
-                <form class="comment">
-                    <textarea class="form-control" placeholder="Write your comment"></textarea>
-                    <div class="comment-footer">
-                        <button type="submit" class="btn btn-primary pull-right">
-                            <i class="fa fa-check fa-fw"></i>
-                            Comment
-                        </button>
-                    </div>
-                </form>
+                </c:forEach>
+                <% if (user == null) { %>
+                    <div class="divider"></div>
+                    Please <a href="login.jsp">login</a> to comment
+                <% } else { %>
+                    <form class="comment" action="view.jsp?id=${code.id}" method="POST">
+                        <textarea class="form-control" name="text" placeholder="Write your comment"></textarea>
+                        <div class="comment-footer">
+                            <button type="submit" class="btn btn-primary pull-right">
+                                <i class="fa fa-check fa-fw"></i>
+                                Comment
+                            </button>
+                        </div>
+                    </form>
+                <% } %>
             </div>
         </div>
     </div>
