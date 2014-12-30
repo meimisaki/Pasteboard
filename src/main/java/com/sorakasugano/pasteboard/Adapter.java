@@ -39,9 +39,8 @@ public class Adapter {
         synchronized (Adapter.class) {
             for (Map.Entry<String, Boolean> entry : keys.entrySet()) {
                 String key = entry.getKey();
-                ReadWriteLock lock = null;
-                if (locks.containsKey(key)) lock = locks.get(key);
-                else {
+                ReadWriteLock lock = locks.get(key);
+                if (lock == null) {
                     lock = new ReentrantReadWriteLock();
                     locks.put(key, lock);
                 }
