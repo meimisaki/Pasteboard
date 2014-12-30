@@ -17,6 +17,8 @@ JSP course assignment
 
 * `cp target/pasteboard.war path/to/your/tomcat/webapps`
 
+* `cp database.sample.properties database.properties` and edit it in `src/main/resources` folder
+
 * `catalina start`
 
 * visit [http://localhost:8080/pasteboard](http://localhost:8080/pasteboard)
