@@ -1,5 +1,6 @@
 package com.sorakasugano.pasteboard;
 
+import java.io.*;
 import java.util.*;
 import java.util.concurrent.locks.*;
 import org.apache.commons.lang3.*;
@@ -11,11 +12,25 @@ import com.sorakasugano.pasteboard.InvalidIdentifierException;
 public class Adapter {
     private static Map<String, ReadWriteLock> locks = new WeakHashMap<String, ReadWriteLock>();
     private static JedisPool pool = null;
-    private static void initialize() {
+    private static int index = 0;
+    private static void initialize() throws IOException {
         synchronized (JedisPool.class) {
             if (pool == null) {
                 JedisPoolConfig config = new JedisPoolConfig();
                 pool = new JedisPool(config, "127.0.0.1");
+                InputStream in = null;
+                try {
+                    in = Adapter.class.getClassLoader().getResourceAsStream("database.properties");
+                    Properties props = new Properties();
+                    props.load(in);
+                    index = Integer.parseInt(props.getProperty("index"));
+                }
+                catch (Exception except) {
+                    // pass
+                }
+                finally {
+                    if (in != null) in.close();
+                }
             }
         }
     }
@@ -57,6 +72,7 @@ public class Adapter {
             Jedis jedis = null;
             try {
                 jedis = pool.getResource();
+                jedis.select(index);
                 return actor.call(jedis);
             }
             catch (JedisException except) {
