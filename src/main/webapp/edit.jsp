@@ -26,12 +26,7 @@ if ("POST".equalsIgnoreCase(request.getMethod())) {
     setter.owner = "user:" + uid;
     setter.type = "code";
     setter.id = cid;
-    Map<String, String> object = new HashMap<String, String>();
-    object.put("title", request.getParameter("title"));
-    object.put("description", request.getParameter("description"));
-    object.put("source", request.getParameter("source"));
-    object.put("language", request.getParameter("language"));
-    object.put("tags", request.getParameter("tags"));
+    Map<String, String> object = new Extractor(request).extract("title", "description", "source", "language", "tags");
     object.put("owner", uid);
     setter.object = object;
     Adapter.invoke(setter);

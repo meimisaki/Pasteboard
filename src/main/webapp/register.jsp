@@ -10,10 +10,7 @@ if ("POST".equalsIgnoreCase(request.getMethod())) {
         Setter setter = new Setter();
         setter.type = "user";
         setter.id = id;
-        Map<String, String> object = new HashMap<String, String>();
-        object.put("password", request.getParameter("password"));
-        object.put("email", request.getParameter("email"));
-        setter.object = object;
+        setter.object = new Extractor(request).extract("password", "email");
         setter.replace = false;
         request.setAttribute("success", Adapter.invoke(setter));
     }
