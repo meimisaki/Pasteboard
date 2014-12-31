@@ -5,9 +5,11 @@ A simple code pasteboard for sharing
 
 JSP course assignment
 
+DEMO: [http://pasteboard.pupa.moe](http://pasteboard.pupa.moe)
+
 ## Usage
 
-* Install `maven`, `bower`, `redis` and `tomcat`
+* Install `jdk8`, `maven`, `bower`, `redis` and `tomcat8`
 
 * run `redis-server` in background
 
