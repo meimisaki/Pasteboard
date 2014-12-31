@@ -3,6 +3,7 @@
 <%@ page import="redis.clients.jedis.*" %>
 <%@ page import="com.sorakasugano.pasteboard.*" %>
 <%@ page isELIgnored="false" %>
+<%@ taglib uri="/utils" prefix="u" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%
@@ -108,5 +109,11 @@ request.setAttribute("comments", comments);
     <div class="page-footer"></div>
 </div>
 <script type="text/javascript">
-hljs.initHighlightingOnLoad();
+$(document).ready(function () {
+    $.getJSON('langs.json', function (langs) {
+        var val = langs[${u:JSONEncode(code.language)}];
+        val && $('pre code').addClass(val[0]);
+        hljs.initHighlighting();
+    });
+});
 </script>
