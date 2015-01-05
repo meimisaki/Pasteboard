@@ -3,10 +3,10 @@ package com.sorakasugano.pasteboard;
 import java.util.*;
 import redis.clients.jedis.*;
 import com.sorakasugano.pasteboard.Adapter;
-import com.sorakasugano.pasteboard.Reader;
+import com.sorakasugano.pasteboard.Actor;
 import com.sorakasugano.pasteboard.Getter;
 
-public class Selector extends Reader<List<Map<String, String>>> {
+public class Selector extends Actor<List<Map<String, String>>> {
     public String subtype = null;
     public String alias = null;
     public int offset = 0;
@@ -25,5 +25,11 @@ public class Selector extends Reader<List<Map<String, String>>> {
             out.add(Adapter.invoke(getter));
         }
         return out;
+    }
+    @Override
+    public Map<String, Boolean> keys() {
+        Map<String, Boolean> keys = super.keys();
+        keys.put(list(), false);
+        return keys;
     }
 }
