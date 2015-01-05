@@ -37,7 +37,7 @@ Object user = request.getAttribute("user");
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="#" title="random author">
+                        <li><a href="random-user.jsp" title="random author">
                             <i class="fa fa-user fa-lg fa-fw"></i>
                             <span class="visible-xs">Random author</span>
                         </a></li>
