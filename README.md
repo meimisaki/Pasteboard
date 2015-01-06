@@ -9,7 +9,7 @@ DEMO: [http://pasteboard.pupa.moe](http://pasteboard.pupa.moe)
 
 ## Usage
 
-* Install `jdk8`, `maven`, `bower`, `redis` and `tomcat8`
+* install `jdk8`, `maven`, `bower`, `redis` and `tomcat8`
 
 * run `redis-server` in background
 
@@ -26,6 +26,8 @@ DEMO: [http://pasteboard.pupa.moe](http://pasteboard.pupa.moe)
 * visit [http://localhost:8080/pasteboard](http://localhost:8080/pasteboard)
 
 ## Todo
+
+> notification
 
 > version control(longest common subsequence)
 
