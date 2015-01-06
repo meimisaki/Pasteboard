@@ -52,7 +52,7 @@ public class Adapter {
         }
         return out;
     }
-    private static void unlock(Map<String, Boolean> keys) {
+    private static void unlock(Map<String, Boolean> keys, Map<String, ReadWriteLock> locks) {
         synchronized (Adapter.class) {
             for (Map.Entry<String, Boolean> entry : keys.entrySet()) {
                 ReadWriteLock lock = locks.get(entry.getKey());
@@ -87,7 +87,7 @@ public class Adapter {
             }
         }
         finally {
-            unlock(keys);
+            unlock(keys, locks);
         }
     }
 }
