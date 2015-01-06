@@ -17,6 +17,7 @@ public class Adapter {
         synchronized (JedisPool.class) {
             if (pool == null) {
                 JedisPoolConfig config = new JedisPoolConfig();
+                config.setMaxActive(-1);
                 pool = new JedisPool(config, "127.0.0.1");
                 InputStream in = null;
                 try {
