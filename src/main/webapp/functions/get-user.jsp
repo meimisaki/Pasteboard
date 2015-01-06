@@ -3,10 +3,13 @@
 <%@ page import="com.sorakasugano.pasteboard.*" %>
 <%
 String token = null;
-for (Cookie cookie : request.getCookies()) {
-    if (cookie.getName().equals("token")) {
-        token = cookie.getValue();
-        break;
+Cookie[] cookies = request.getCookies();
+if (cookies != null) {
+    for (Cookie cookie : cookies) {
+        if (cookie.getName().equals("token")) {
+            token = cookie.getValue();
+            break;
+        }
     }
 }
 if (token != null) {
