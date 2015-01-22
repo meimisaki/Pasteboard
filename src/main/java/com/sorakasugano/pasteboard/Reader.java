@@ -1,7 +1,6 @@
 package com.sorakasugano.pasteboard;
 
 import java.util.*;
-import com.sorakasugano.pasteboard.Actor;
 
 public abstract class Reader<T> extends Actor<T> {
     @Override

@@ -6,8 +6,6 @@ import java.util.concurrent.locks.*;
 import org.apache.commons.lang3.*;
 import redis.clients.jedis.*;
 import redis.clients.jedis.exceptions.*;
-import com.sorakasugano.pasteboard.Actor;
-import com.sorakasugano.pasteboard.InvalidIdentifierException;
 
 public class Adapter {
     private static Map<String, ReadWriteLock> locks = new WeakHashMap<String, ReadWriteLock>();

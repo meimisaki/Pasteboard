@@ -2,9 +2,6 @@ package com.sorakasugano.pasteboard;
 
 import java.util.*;
 import redis.clients.jedis.*;
-import com.sorakasugano.pasteboard.Adapter;
-import com.sorakasugano.pasteboard.Actor;
-import com.sorakasugano.pasteboard.Getter;
 
 public class Selector extends Actor<List<Map<String, String>>> {
     public String subtype = null;

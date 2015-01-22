@@ -1,7 +1,6 @@
 package com.sorakasugano.pasteboard;
 
 import redis.clients.jedis.*;
-import com.sorakasugano.pasteboard.Writer;
 
 public class Remover extends Writer {
     @Override

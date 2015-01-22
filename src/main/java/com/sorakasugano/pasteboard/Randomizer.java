@@ -2,7 +2,6 @@ package com.sorakasugano.pasteboard;
 
 import java.util.*;
 import redis.clients.jedis.*;
-import com.sorakasugano.pasteboard.Actor;
 
 public class Randomizer extends Actor<String> {
     private static final Random random = new Random();

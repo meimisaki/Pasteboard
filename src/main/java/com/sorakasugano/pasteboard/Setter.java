@@ -3,7 +3,6 @@ package com.sorakasugano.pasteboard;
 import java.util.*;
 import java.text.*;
 import redis.clients.jedis.*;
-import com.sorakasugano.pasteboard.Writer;
 
 public class Setter extends Writer {
     public String owner = null;
