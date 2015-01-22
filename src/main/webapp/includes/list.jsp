@@ -2,6 +2,7 @@
 <%@ page isELIgnored="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="/dbutils" prefix="db" %>
 <table class="table">
     <tbody>
         <c:forEach items="${list}" var="item">
@@ -13,7 +14,7 @@
                         </a>
                         <span class="item-header-addon">
                             <i class="fa fa-star fa-fw"></i>
-                            @STARS
+                            ${db:countStars(item.id)}
                         </span>
                         <span class="item-header-addon">
                             <c:out value="${item.language}" />

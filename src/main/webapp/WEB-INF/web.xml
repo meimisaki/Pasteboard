@@ -9,6 +9,10 @@
       <taglib-uri>/utils</taglib-uri>
       <taglib-location>/WEB-INF/tags/Utils.tld</taglib-location>
     </taglib>
+    <taglib>
+      <taglib-uri>/dbutils</taglib-uri>
+      <taglib-location>/WEB-INF/tags/DBUtils.tld</taglib-location>
+    </taglib>
   </jsp-config>
   <servlet>
     <servlet-name>UploadServlet</servlet-name>
