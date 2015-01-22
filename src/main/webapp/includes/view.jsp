@@ -24,7 +24,7 @@ request.setAttribute("comments", comments);
 %>
 <script type="text/javascript" src="bower_components/highlightjs/highlight.pack.js"></script>
 <link rel="stylesheet" type="text/css" href="bower_components/highlightjs/styles/default.css" />
-<div class="container">
+<div class="container" ng-controller="viewCtrl" ng-init="id = <c:out value="${u:JSONEncode(code.id)}" />">
     <form>
         <h2 class="breadcrumb page-header">
             <li><a href=".?id=${owner.id}">${owner.id}</a></li>
@@ -44,9 +44,9 @@ request.setAttribute("comments", comments);
                 };
                 boolean star = Adapter.invoke(reader);
                 %>
-                <button type="submit" class="btn btn-default pull-right">
-                    <i class="fa fa-star<%= star ? "-o" : "" %> fa-fw"></i>
-                    <%= star ? "Unstar" : "Star" %>
+                <button type="submit" class="btn btn-default pull-right" ng-click="toggle()" ng-init="star = <%= star %>">
+                    <i class="fa fa-fw" ng-class="{'fa-star': !star, 'fa-star-o': star}"></i>
+                    {{star ? 'Unstar' : 'Star'}}
                 </button>
             <% } %>
         </h2>
