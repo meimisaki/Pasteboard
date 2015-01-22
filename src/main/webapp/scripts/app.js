@@ -98,3 +98,14 @@ app.directive('centering', function () {
         }
     };
 });
+
+app.value('atomic', function (fn) {
+    var promise;
+    function clear() {
+        promise = null;
+    }
+    return function () {
+        if (promise) return ;
+        if (promise = fn.apply(this, arguments)) promise['finally'](clear);
+    };
+});
