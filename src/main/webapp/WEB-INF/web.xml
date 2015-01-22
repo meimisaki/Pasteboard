@@ -22,4 +22,13 @@
     <servlet-name>UploadServlet</servlet-name>
     <url-pattern>/upload</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>StarServlet</servlet-name>
+    <servlet-class>com.sorakasugano.pasteboard.StarServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StarServlet</servlet-name>
+    <url-pattern>/star/*</url-pattern>
+    <url-pattern>/unstar/*</url-pattern>
+  </servlet-mapping>
 </web-app>
