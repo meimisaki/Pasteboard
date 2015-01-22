@@ -41,10 +41,6 @@ Object user = request.getAttribute("user");
                             <i class="fa fa-user fa-lg fa-fw"></i>
                             <span class="visible-xs">Random author</span>
                         </a></li>
-                        <li><a href="#" title="random code">
-                            <i class="fa fa-code fa-lg fa-fw"></i>
-                            <span class="visible-xs">Random code</span>
-                        </a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <% if (user == null) { %>
